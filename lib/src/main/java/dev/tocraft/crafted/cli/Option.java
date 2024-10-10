@@ -1,5 +1,7 @@
 package dev.tocraft.crafted.cli;
 
+import java.util.Objects;
+
 public class Option {
     private final String abbreviation;
     private final boolean required;
@@ -15,24 +17,28 @@ public class Option {
         this.aliases = aliases;
     }
 
-    public String getAbbreviation() {
-        return abbreviation;
+    public boolean isArg(String arg) {
+        if (Objects.equals(abbreviation, arg)) {
+            return true;
+        }
+        for (String alias : aliases) {
+            if (Objects.equals(alias, arg)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isRequired() {
         return required;
     }
 
-    public boolean isTakesInput() {
+    public boolean takesInput() {
         return takesInput;
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public String[] getAliases() {
-        return aliases;
     }
 
     public String getUseHelp(boolean detailed) {
@@ -55,5 +61,10 @@ public class Option {
         }
 
         return useHelp.toString();
+    }
+
+    @Override
+    public String toString() {
+        return abbreviation;
     }
 }
