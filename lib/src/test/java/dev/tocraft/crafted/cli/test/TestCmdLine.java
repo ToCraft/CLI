@@ -1,7 +1,9 @@
 package dev.tocraft.crafted.cli.test;
 
 import dev.tocraft.crafted.cli.CommandLine;
+import dev.tocraft.crafted.cli.CmdLineBuilder;
 import dev.tocraft.crafted.cli.Option;
+import dev.tocraft.crafted.cli.OptionBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,11 +20,11 @@ public class TestCmdLine {
             "Copyright (c) 2024 To_Craft. Licensed under the Crafted License 1.0\n";
 
     private static CommandLine getTestCmdLine(boolean forceArgInput) {
-        Option input = new Option("-i", true, true, "Input file", "--input");
-        Option output = new Option("-o", true, false, "Output if specified", "--output");
-        Option second = new Option("-s", false, true, "Define a second input", "--second");
-        Option inDir = new Option("-d", false, false, "Do it in a directory", "--directory","--dir");
-        return new CommandLine("java -jar program.jar", "Magic Tool doing something special.", "Copyright (c) 2024 To_Craft. Licensed under the Crafted License 1.0", forceArgInput, input, output, second, inDir);
+        Option input = new OptionBuilder().setAbbreviation("-i").setRequired(true).setTakesInput(true).setDescription("Input file").addAliases("--input").create();
+        Option output = new OptionBuilder().setAbbreviation("-o").setRequired(true).setTakesInput(false).setDescription("Output if specified").addAliases("--output").create();
+        Option second = new OptionBuilder().setAbbreviation("-s").setRequired(false).setTakesInput(true).setDescription("Define a second input").addAliases("--second").create();
+        Option inDir = new OptionBuilder().setAbbreviation("-d").setRequired(false).setTakesInput(false).setDescription("Do it in a directory").addAliases("--directory", "--dir").create();
+        return new CmdLineBuilder().setCmdBase("java -jar program.jar").setHeader("Magic Tool doing something special.").setFooter("Copyright (c) 2024 To_Craft. Licensed under the Crafted License 1.0").setForceArgInput(forceArgInput).addOptions(input, output, second, inDir).create();
     }
 
     @Test
