@@ -1,6 +1,5 @@
 package dev.tocraft.crafted.cli;
 
-import javax.annotation.Nullable;
 import java.util.*;
 
 public class CommandLine {
@@ -14,7 +13,6 @@ public class CommandLine {
         this.helpPage = makeHelpPage(cmdBase, header, footer);
     }
 
-    @Nullable
     public Map<Option, String> parseArgs(String[] args) {
         List<String> parsedArgs = new ArrayList<>();
         Map<Option, String> optionInput = new HashMap<>();
