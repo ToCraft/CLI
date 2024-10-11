@@ -2,7 +2,6 @@ package dev.tocraft.crafted.cli;
 
 import javax.annotation.Nullable;
 import java.util.*;
-import java.util.function.Consumer;
 
 public class CommandLine {
     private final String helpPage;
@@ -15,14 +14,8 @@ public class CommandLine {
         this.helpPage = makeHelpPage(cmdBase, header, footer);
     }
 
-    @SuppressWarnings("unused")
     @Nullable
     public Map<Option, String> parseArgs(String[] args) {
-        return parseArgs(System.out::println, args);
-    }
-
-    @Nullable
-    public Map<Option, String> parseArgs(Consumer<String> printHelp, String[] args) {
         List<String> parsedArgs = new ArrayList<>();
         Map<Option, String> optionInput = new HashMap<>();
 
@@ -50,20 +43,16 @@ public class CommandLine {
             }
 
             if (new ArrayList<>(Arrays.asList(args)).retainAll(parsedArgs)) {
-                List<String> list = new ArrayList<>(Arrays.asList(args));
-                list.removeIf(parsedArgs::contains);
-
-                throw new Exception(list.toString());
+                throw new Exception();
             }
 
             for (Option option : options) {
-                if ((option.isRequired() && !optionInput.containsKey(option)) || (option.takesInput() && optionInput.get(option) == null)) {
+                if (option.isRequired() && (!optionInput.containsKey(option) || (option.takesInput() && optionInput.get(option) == null))) {
                     throw new Exception();
                 }
             }
 
         } catch (Exception e) {
-            printHelp.accept(helpPage);
             return null;
         }
 

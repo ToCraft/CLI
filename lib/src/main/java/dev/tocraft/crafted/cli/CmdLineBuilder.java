@@ -9,7 +9,7 @@ public class CmdLineBuilder {
     private String cmdBase;
     private String header;
     private String footer;
-    private boolean forceArgInput;
+    private boolean forceArgInput = false;
     private final List<Option> options = new ArrayList<>();
 
     public CmdLineBuilder setCmdBase(String cmdBase) {

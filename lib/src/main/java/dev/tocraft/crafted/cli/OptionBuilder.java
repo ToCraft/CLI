@@ -7,9 +7,9 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class OptionBuilder {
     private String abbreviation;
-    private boolean required;
-    private boolean takesInput;
-    private String description;
+    private boolean required = true;
+    private boolean takesInput = true;
+    private String description = "";
     private final List<String> aliases = new ArrayList<>();
 
     public OptionBuilder setAbbreviation(String abbreviation) {
