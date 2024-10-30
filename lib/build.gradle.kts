@@ -8,7 +8,7 @@ repositories {
 }
 
 group="dev.tocraft"
-version="0.4"
+version="1.0"
 
 base {
     archivesName="cli"
