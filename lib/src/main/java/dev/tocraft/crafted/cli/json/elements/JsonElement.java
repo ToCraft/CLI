@@ -7,9 +7,7 @@ public interface JsonElement {
         return toPrettyJson(0);
     }
 
-    default String toJson() {
-        return toPrettyJson().replaceAll("\\s*", "");
-    }
+    String toJson();
 
     String toPrettyJson(int indentLevel);
 
@@ -71,5 +69,20 @@ public interface JsonElement {
         } catch (Exception e) {
             throw new JsonParseException(this.toString());
         }
+    }
+
+    static int compareStrings(String s1, String s2) {
+        int comparison;
+        int c1, c2;
+        for (int i = 0; i < s1.length() && i < s2.length(); i++) {
+            c1 = s1.toLowerCase().charAt(i);
+            c2 = s2.toLowerCase().charAt(i);
+            comparison = c1 - c2;
+
+            if (comparison != 0) {
+                return comparison;
+            }
+        }
+        return Integer.compare(s1.length(), s2.length());
     }
 }

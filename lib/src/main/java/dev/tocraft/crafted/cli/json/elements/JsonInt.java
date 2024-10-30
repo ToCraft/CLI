@@ -12,8 +12,13 @@ public class JsonInt implements JsonElement {
     }
 
     @Override
-    public String toPrettyJson(int indentLevel) {
+    public String toJson() {
         return Integer.toString(value);
+    }
+
+    @Override
+    public String toPrettyJson(int indentLevel) {
+        return toJson();
     }
 
     @Override

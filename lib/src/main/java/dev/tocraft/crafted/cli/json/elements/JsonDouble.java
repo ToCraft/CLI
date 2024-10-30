@@ -12,8 +12,13 @@ public class JsonDouble implements JsonElement {
     }
 
     @Override
-    public String toPrettyJson(int indentLevel) {
+    public String toJson() {
         return Double.toString(value);
+    }
+
+    @Override
+    public String toPrettyJson(int indentLevel) {
+        return toJson();
     }
 
     @Override

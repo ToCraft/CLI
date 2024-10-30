@@ -22,13 +22,13 @@ public class TestJson {
         String obj = "[1,2,3,4,5]";
         Assert.assertEquals(obj, JsonParser.parseJson(obj).toJson());
         obj = "[\"a\",false,4,2.3]";
-        Assert.assertEquals(obj, JsonParser.parseJson(obj).toJson());
+        Assert.assertEquals("[\"a\",2.3,4,false]", JsonParser.parseJson(obj).toJson());
         obj = "{\"key\":\"value\",\"other\":3}";
         Assert.assertEquals("{\n" +
-                "    \"other\": 3,\n" +
-                "    \"key\": \"value\"\n" +
+                "    \"key\": \"value\",\n" +
+                "    \"other\": 3\n" +
                 "}", JsonParser.parseJson(obj).asObject().toPrettyJson());
         obj = "[\"test\",{\"key\":\"value\",\"other\":3}]";
-        Assert.assertEquals("[\"test\",{\"other\":3,\"key\":\"value\"}]", JsonParser.parseJson(obj).toJson());
+        Assert.assertEquals(obj, JsonParser.parseJson(obj).toJson());
     }
 }

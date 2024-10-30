@@ -12,8 +12,13 @@ public class JsonBool implements JsonElement {
     }
 
     @Override
-    public String toPrettyJson(int indentLevel) {
+    public String toJson() {
         return Boolean.toString(value);
+    }
+
+    @Override
+    public String toPrettyJson(int indentLevel) {
+        return toJson();
     }
 
     @Override
