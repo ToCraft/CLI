@@ -1,19 +1,19 @@
-package dev.tocraft.crafted.cli.json.elements;
+package dev.tocraft.cli.json.elements;
 
-public class JsonString implements JsonElement {
-    private final String value;
+public class JsonDouble implements JsonElement {
+    private final double value;
 
-    public JsonString(String value) {
+    public JsonDouble(double value) {
         this.value = value;
     }
 
-    public String get() {
+    public double get() {
         return value;
     }
 
     @Override
     public String toJson() {
-        return "\"" + value + "\"";
+        return Double.toString(value);
     }
 
     @Override

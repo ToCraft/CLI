@@ -1,4 +1,4 @@
-package dev.tocraft.crafted.cli.json.elements;
+package dev.tocraft.cli.json.elements;
 
 import java.util.ArrayList;
 import java.util.HashMap;

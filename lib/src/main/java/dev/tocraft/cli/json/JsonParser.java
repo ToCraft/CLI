@@ -1,6 +1,6 @@
-package dev.tocraft.crafted.cli.json;
+package dev.tocraft.cli.json;
 
-import dev.tocraft.crafted.cli.json.elements.*;
+import dev.tocraft.cli.json.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,19 +1,19 @@
-package dev.tocraft.crafted.cli.json.elements;
+package dev.tocraft.cli.json.elements;
 
-public class JsonInt implements JsonElement {
-    private final int value;
+public class JsonBool implements JsonElement {
+    private final boolean value;
 
-    public JsonInt(int value) {
+    public JsonBool(boolean value) {
         this.value = value;
     }
 
-    public int get() {
+    public boolean get() {
         return value;
     }
 
     @Override
     public String toJson() {
-        return Integer.toString(value);
+        return Boolean.toString(value);
     }
 
     @Override

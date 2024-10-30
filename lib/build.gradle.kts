@@ -7,7 +7,7 @@ repositories {
     mavenCentral()
 }
 
-group="dev.tocraft.crafted"
+group="dev.tocraft"
 version="0.4"
 
 base {

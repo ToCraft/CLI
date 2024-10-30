@@ -1,4 +1,4 @@
-package dev.tocraft.crafted.cli;
+package dev.tocraft.cli;
 
 import java.util.Objects;
 

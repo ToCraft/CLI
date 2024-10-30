@@ -1,7 +1,7 @@
-package dev.tocraft.crafted.cli.test;
+package dev.tocraft.cli.test;
 
-import dev.tocraft.crafted.cli.json.JsonParseException;
-import dev.tocraft.crafted.cli.json.JsonParser;
+import dev.tocraft.cli.json.JsonParseException;
+import dev.tocraft.cli.json.JsonParser;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package dev.tocraft.crafted.cli.json;
+package dev.tocraft.cli.json;
 
 public class JsonParseException extends RuntimeException {
     public JsonParseException(String json) {

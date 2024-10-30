@@ -1,6 +1,6 @@
-package dev.tocraft.crafted.cli.json.elements;
+package dev.tocraft.cli.json.elements;
 
-import dev.tocraft.crafted.cli.json.JsonParseException;
+import dev.tocraft.cli.json.JsonParseException;
 
 public interface JsonElement {
     default String toPrettyJson() {

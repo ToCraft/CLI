@@ -1,9 +1,9 @@
-package dev.tocraft.crafted.cli.test;
+package dev.tocraft.cli.test;
 
-import dev.tocraft.crafted.cli.CommandLine;
-import dev.tocraft.crafted.cli.CmdLineBuilder;
-import dev.tocraft.crafted.cli.Option;
-import dev.tocraft.crafted.cli.OptionBuilder;
+import dev.tocraft.cli.CommandLine;
+import dev.tocraft.cli.CmdLineBuilder;
+import dev.tocraft.cli.Option;
+import dev.tocraft.cli.OptionBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 
